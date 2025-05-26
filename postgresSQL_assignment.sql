@@ -58,4 +58,12 @@ SELECT * FROM sightings si
 -- Problem-4 : List each ranger's name and their total number of sightings.
 SELECT name, count(*) as total_sighted FROM sightings si
 JOIN rangers ra ON si.ranger_id = ra.ranger_id
-GROUP BY name 
+GROUP BY name
+
+-- Problem-5 : List species that have never been sighted.
+SELECT common_name FROM species sp
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM sightings si
+        WHERE sp.species_id = si.species_id
+    )
