@@ -1,4 +1,4 @@
-## What is PostgreSQL?
+## Blog-1 : What is PostgreSQL?
 
 **PostgreSQL হলো বর্তমান সময়ের সবচেয়ে এডভান্স রিলেশনাল ডেটাবেজ ম্যানেজমেন্ট সিস্টেম।**
 
@@ -25,7 +25,7 @@ Postgres Visualization - source: Programming Hero (Next Level Development)
 
 কোনো এপ্লিকেশনে ইউজার কোনো এক্টিভিটি করতে চাইলে, যেমন কোনো বাটনে ক্লিক করে কোনো ডেটা এক্সেস করতে চাইলে সেটা প্রথমে ব্যাকেন্ড সার্ভারে যায়। সার্ভার তখন ডেটাবেজে রিকুয়েস্ট করে প্রয়োজনীয় ডেটা সরবরাহ করে। সার্ভার থেকে ডেটাবেজের মধ্যে ডেটাবেজের কমিউনিকেশন হ্যান্ডেল করে একটি DBMS; এখানেই ইন্ট্রোডিউস হচ্ছে বর্তমান সময়ের সবচেয়ে জনপ্রিয় DBMS - PostgreSQL. তবে যে কেউ চাইলেই ডেটাবেজে এক্সেস করতে পারে না। এজন্য একটি অথেন্টিকেশন প্রসেসের মধ্য দিয়ে যেতে হয়। সার্ভার ও DBMS এর মাঝে বিভিন্ন ORM ব্যবহার করা হয়। যেমনঃ Prisma.
 
-## Primary Key Vs Foreign Key
+## Blog-2 : Primary Key Vs Foreign Key
 
 - **PRIMARY KEY** : এটি মূলত NOT NULL ও UNIQUE এর কম্বিনেশন; অর্থাৎ Primary Key একই সাথে Null হতে পারবে না এবং Unique হতে হবে। যেমনঃ একটি ইউজারে id.
 - **FOREIGN KEY** : কোনো একটি টেবিলের Primary Key কে যখন আমরা অন্য একটি টেবিলে রাখি তখন যেই constraints তৈরি হয় তাই মূলত Foreign Key. এটি কীভাবে ভ্যালিডেশন এড করে?
@@ -36,7 +36,7 @@ Postgres Visualization - source: Programming Hero (Next Level Development)
 
 Order টেবিলে order_id এর সাথে Product টেবিলের prod_id কে Foreign Key হিসেবে ব্যবহার করা হয়েছে, ফলে যেই ভ্যালিডেশন এড হয়েছে তা হলঃ এখানে Product টেবিলের সাথে Order টেবিলের একটা ইন্টিগ্রিট তৈরি হয়েছে। প্রতিটা order_id এর জন্য অবশ্যই একটি prod_id থাকতে হবে। চাইলেই Product টেবিল থেকে একটি প্রোডাক্ট ডিলিট করা যাবে না।
 
-## The purpose of the WHERE clause in a SELECT statement.
+## Blog-3 : The purpose of the WHERE clause in a SELECT statement.
 
 **নির্দিষ্ট কোনো শর্তের ভিত্তিতে ডেটা ফিল্টার করতে WHERE clause ব্যবহার করা হয়। বিভিন্ন অপারেটর দিয়ে শর্তযুক্ত করে দেখানো হলো। যেমনঃ**
 
@@ -61,7 +61,7 @@ SELECT * FROM students
     WHERE dob BETWEEN '2003-12-21' AND '2004-06-30'
 ```
 
-## What are the LIMIT and OFFSET clauses used for?
+## Blog-4 : What are the LIMIT and OFFSET clauses used for?
 
 - **LIMIT & OFFSET** : LIMIT এবং OFFSET মূলত পেজিনেশন ইমপ্লিমেন্ট এর জন্য ব্যবহার করা।
 
@@ -88,3 +88,12 @@ SELECT * FROM students
   ![OFFSET3.png](https://i.ibb.co/1tLZhPBY/OFFSET3.png)
 
   ![OFFSET4.png](https://i.ibb.co/qLbqJQ6p/OFFSET4.png)
+
+## Blog-5 : How can you modify data using UPDATE statements?
+
+- **UPDATE :** কোনো কলাম বা রো এর ডেটাকে Update করতে হলে এই কমান্ডটি ব্যবহার করতে হবে। তবে ডেটা আপডেটের ক্ষেত্রে যেইটাকে আপডেট করব সেই আইডি বলে দিতে হবে। এবং আপডেট এর ক্ষেত্রেও সকল ধরনের অপারেটর কাজ করবে। যেমনঃ এখানে comparison এর less than operator ব্যবহার করা হয়েছে।
+  ```sql
+  UPDATE students
+  set department = 'failed'
+  WHERE score < 80;
+  ```
