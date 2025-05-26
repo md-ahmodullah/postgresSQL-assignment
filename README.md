@@ -35,3 +35,30 @@ Postgres Visualization - source: Programming Hero (Next Level Development)
 Postgres Visualization - source: Programming Hero (Next Level Development)
 
 Order টেবিলে order_id এর সাথে Product টেবিলের prod_id কে Foreign Key হিসেবে ব্যবহার করা হয়েছে, ফলে যেই ভ্যালিডেশন এড হয়েছে তা হলঃ এখানে Product টেবিলের সাথে Order টেবিলের একটা ইন্টিগ্রিট তৈরি হয়েছে। প্রতিটা order_id এর জন্য অবশ্যই একটি prod_id থাকতে হবে। চাইলেই Product টেবিল থেকে একটি প্রোডাক্ট ডিলিট করা যাবে না।
+
+## The purpose of the WHERE clause in a SELECT statement.
+
+**নির্দিষ্ট কোনো শর্তের ভিত্তিতে ডেটা ফিল্টার করতে WHERE clause ব্যবহার করা হয়। বিভিন্ন অপারেটর দিয়ে শর্তযুক্ত করে দেখানো হলো। যেমনঃ**
+
+- **IN & NOT IN :** Logical OR opeartor দিয়ে অনেক সময় ক্যুয়েরি লিখতে গেলে সিনট্যাক্স বড় হয়ে যায়। এটি Shorthand এ লিখতে হলে IN & NOT IN অপারেটর ব্যবহার করা যেতে পারে। যেমনঃ
+
+```sql
+-- Using Logical OR Operator
+SELECT * FROM students
+    WHERE country = 'USA' OR country = 'Canada' OR country = 'UK'
+-- Using IN/NOT IN Operator
+SELECT * FROM students
+		WHERE country IN('USA', 'Canada', 'UK')
+SELECT * FROM students
+		WHERE country NOT IN('USA', 'Canada', 'UK')
+```
+
+- **BETWEEN** : Between Operator ব্যবহার করে দুই ডেটার মধ্যবর্তী ডেটা দেখানো যায়। যেমনঃ
+
+```sql
+-- Data between two dates
+SELECT * FROM students
+    WHERE dob BETWEEN '2003-12-21' AND '2004-06-30'
+```
+
+##
