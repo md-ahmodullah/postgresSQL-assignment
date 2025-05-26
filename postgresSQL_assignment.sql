@@ -50,3 +50,7 @@ INSERT INTO rangers (name, region)
 
 -- Problem-2 : Count unique species ever sighted.
 SELECT count(DISTINCT species_id) as unique_species_count FROM sightings
+
+-- Problem-3 : Find all sightings where the location includes "Pass".
+SELECT * FROM sightings si 
+    WHERE si.location LIKE '%Pass%'
