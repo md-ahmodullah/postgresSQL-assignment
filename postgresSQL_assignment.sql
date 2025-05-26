@@ -73,3 +73,8 @@ SELECT common_name, sighting_time, name FROM sightings si
 JOIN species sp ON si.species_id = sp.species_id
 JOIN rangers ra ON si.ranger_id = ra.ranger_id
 ORDER BY sighting_time DESC LIMIT 2
+
+-- Problem-7 : Update all species discovered before year 1800 to have status 'Historic'.
+UPDATE species 
+SET conservation_status = 'Historic' 
+    WHERE EXTRACT(year from discovery_date) < 1800

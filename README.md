@@ -71,7 +71,7 @@ SELECT * FROM students
 
   - **OFFSET** - OFFSET হলো প্রথম থেকে কয়টা ডেটা বাদ দিবে তার কাউন্ট। এর কাজ হলো তাকে এসাইন করা নাম্বার অনুযায়ী প্রথম থেকে ডেটা বাদ দিয়ে দেওয়া। যেমনঃ
 
-  ![OFFSET.png](https://i.ibb.co/tMkz1v8z/OFFSET.png)
+  ![OFFSET.png](https://i.ibb.co/BVN2scvp/OFFSET.png)
 
   এখানে OFFSET 3 তাই প্রথম থেকে ৩ টা ডেটা বাদ দিয়েছে। (1,2,3 নম্বর ডেটা নেই)
 
