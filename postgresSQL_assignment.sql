@@ -87,3 +87,11 @@ CASE
     ELSE 'Evening'
 END AS time_of_day
 FROM sightings;
+
+-- Problem-9 : Delete rangers who have never sighted any species
+DELETE FROM rangers
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM sightings
+    WHERE rangers.ranger_id = sightings.ranger_id
+)
