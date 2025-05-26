@@ -67,3 +67,9 @@ SELECT common_name FROM species sp
         FROM sightings si
         WHERE sp.species_id = si.species_id
     )
+
+-- Problem-6 : Show the most recent 2 sightings.
+SELECT common_name, sighting_time, name FROM sightings si
+JOIN species sp ON si.species_id = sp.species_id
+JOIN rangers ra ON si.ranger_id = ra.ranger_id
+ORDER BY sighting_time DESC LIMIT 2
